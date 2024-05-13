@@ -8,7 +8,7 @@ const { CryptoPay, Assets, PaidButtonNames } = require('@foile/crypto-pay-api');
 
 const webAppUrl = "https://azhypa-web.onrender.com";
 //6664007271:AAGIYnU3pxOwTXgzuNylrqZRWRWw6dl39Ao
-const bot = new Telegraf("5944241967:AAHU4-QYIzxLczDTiagj5RqcvIufP28KY7I");
+const bot = new Telegraf("6664007271:AAGIYnU3pxOwTXgzuNylrqZRWRWw6dl39Ao");
 const localSession = new LocalSession({ database: "session_db.json" });
 const cryptoPayToken = '160624:AA5WhTeiwoQSBLtWhVi2cj3PFwqTacZAltN';
 const cryptoPay = new CryptoPay(cryptoPayToken);
