@@ -19,7 +19,7 @@ bot.start(async (ctx) => {
     console.log(userId);
     const userName = ctx.from.username ? ctx.from.username : "none";
     const currentTime = await functions.getCurrentTime();
-
+    ctx.session.timeOut1 = true
     try {
         await ctx.replyWithVideo({source: './assets/payment_instructions.mp4'}, {
             protect_content: true,
@@ -53,7 +53,7 @@ bot.start(async (ctx) => {
                 ...keyboards.welcome_keyboard
             })
         }
-    }, 900000);
+    }, 10000);//900000
 })
 
 bot.action("welcome-payment", async (ctx) => {
@@ -249,6 +249,7 @@ bot.action("checkPrimaryCryptoPayment", async (ctx) => {
                 await ctx.replyWithPhoto({source: './assets/lesson1.jpg'}, {
                     protect_content: true,
                     parse_mode: 'HTML',
+                    caption: messages.firstLessonVideoIntro_message.ru,
                     ...keyboards.firstLessonVideoIntro_keyboard
                 })
             } catch (error) {
@@ -338,6 +339,7 @@ bot.on("web_app_data", async (ctx) => {
                 await ctx.replyWithPhoto({source: './assets/lesson1.jpg'}, {
                     protect_content: true,
                     parse_mode: 'HTML',
+                    caption: messages.firstLessonVideoIntro_message.ru,
                     ...keyboards.firstLessonVideoIntro_keyboard
                 })
 
