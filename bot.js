@@ -45,7 +45,7 @@ bot.start(async (ctx) => {
     }
     
     setTimeout(async () => {
-        if (ctx.session.timeOut1 = true) {
+        if (ctx.session.timeOut1) {
             await ctx.replyWithPhoto({source: './assets/welcome.jpg'}, {
                 protect_content: true,
                 parse_mode: 'HTML',
@@ -53,7 +53,7 @@ bot.start(async (ctx) => {
                 ...keyboards.welcome_keyboard
             })
         }
-    }, 10000);//900000
+    }, 900000);
 })
 
 bot.action("welcome-payment", async (ctx) => {
