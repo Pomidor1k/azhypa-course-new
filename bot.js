@@ -158,6 +158,18 @@ bot.action("cancel_choosing_crypto_currency", async (ctx) => {
     }
 })
 
+bot.command('admin', async (ctx) => {
+  if (String(ctx.from.id) === '689818355' || String(ctx.from.id) === '514751965') {
+    try {
+      let usersInfo = await mainDb.getAdminUsersInfo()
+      await ctx.replyWithHTML(`<b>Информация о пользователях</b>\n\n<b>Количество пользователей:</b>   ${usersInfo.usersAmount}\n\n<b>Количество оплат:</b>   ${usersInfo.paymentsAmount}\n\n<b>Ожидают сессию:</b>   ${usersInfo.waitingForSessionAmount}
+      `)
+    } catch (error) {
+      await ctx.replyWithHTML("Ошибка получения данных")
+    }
+  }
+})
+
 
 bot.action(["crypto_USDT", "crypto_TON", "crypto_BTC", "crypto_ETH"], async (ctx) => {
     const userId = ctx.from.id

@@ -66,6 +66,40 @@ async function updateUserParameter(userId, parameterName, parameterValue) {
     }
 }
 
+async function getAdminUsersInfo() {
+    const db = admin.firestore();
+    const usersCollection = db.collection('users');
+  
+    try {
+        const usersSnapshot = await usersCollection.get();
+  
+        if (usersSnapshot.empty) {
+            console.log('No users found.');
+            return {};
+        }
+  
+        let usersAmount = 0;
+        let paymentsAmount = 0;
+        let waitingForSessionAmount = 0;
+  
+        usersSnapshot.forEach(doc => {
+            const userData = doc.data();
+            usersAmount++;
+            if (userData.userPayment === true) paymentsAmount++;
+            if (userData.waitingForSession === true) waitingForSessionAmount++;
+        });
+  
+        return {
+            usersAmount,
+            paymentsAmount,
+            waitingForSessionAmount
+        };
+    } catch (error) {
+        console.error('Error getting users:', error);
+        throw error;
+    }
+}
+
 
 async function updateUserAfterPaymentInfo(userId, 
     userEmail, 
@@ -154,5 +188,6 @@ module.exports = {
     updateUserParameter,
     updateUserAfterPaymentInfo,
     updateUserTests,
-    updateUserPersonalAnswersInfo
+    updateUserPersonalAnswersInfo,
+    getAdminUsersInfo
 }
