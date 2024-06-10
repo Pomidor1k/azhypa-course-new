@@ -178,19 +178,19 @@ bot.action(["crypto_USDT", "crypto_TON", "crypto_BTC", "crypto_ETH"], async (ctx
     exchangeObjArray.forEach(currencyObj => {
         if (chosenCurrency === 'crypto_USDT') {
           if (currencyObj.source === 'USDT' && currencyObj.target === 'USD') {
-            convertedPrice = String((68 / currencyObj.rate).toFixed(5))
+            convertedPrice = String((150 / currencyObj.rate).toFixed(5))
           }
         } else if (chosenCurrency === 'crypto_TON') {
           if (currencyObj.source === 'TON' && currencyObj.target === 'USD') {
-            convertedPrice = String((68 / currencyObj.rate).toFixed(5))
+            convertedPrice = String((150 / currencyObj.rate).toFixed(5))
           }
         } else if (chosenCurrency === 'crypto_BTC') {
           if (currencyObj.source === 'BTC' && currencyObj.target === 'USD') {
-            convertedPrice = String((68 / currencyObj.rate).toFixed(5))
+            convertedPrice = String((150 / currencyObj.rate).toFixed(5))
           }
         } else if (chosenCurrency === 'crypto_ETH') {
           if (currencyObj.source === 'ETH' && currencyObj.target === 'USD') {
-            convertedPrice = String((68 / currencyObj.rate).toFixed(5))
+            convertedPrice = String((150 / currencyObj.rate).toFixed(5))
           }
         }
     })
